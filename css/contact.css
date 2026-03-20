@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.hero-small h2 {
+.hero-small h1 {
     font-size: 36px;
     margin-bottom: 10px;
 }
@@ -29,8 +29,8 @@
 }
 
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    display: flex;
+    flex-direction: column;
     gap: 50px;
 }
 
@@ -39,6 +39,20 @@
     font-size: 28px;
     margin-bottom: 30px;
     color: var(--primary);
+}
+
+/* Contact Info - 2 columns layout */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 780px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.contact-info > h2 {
+    display: none;
 }
 
 /* Contact Info Cards */
@@ -57,7 +71,7 @@
     box-shadow: var(--shadow-lg);
 }
 
-.info-card h4 {
+.info-card h3 {
     font-size: 18px;
     margin-bottom: 15px;
     color: var(--primary);
@@ -99,12 +113,36 @@
     padding: 40px;
     border-radius: 10px;
     box-shadow: var(--shadow-lg);
+    max-width: 780px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .contact-form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+/* Left column: Prénom (1), Nom (2), Société (3), Email (4), Téléphone (5) */
+.contact-form > .form-group:nth-child(1),
+.contact-form > .form-group:nth-child(2),
+.contact-form > .form-group:nth-child(3),
+.contact-form > .form-group:nth-child(4),
+.contact-form > .form-group:nth-child(5) {
+    grid-column: 1;
+}
+
+/* Right column: Message (6) spans all 5 rows */
+.contact-form > .form-group:nth-child(6) {
+    grid-column: 2;
+    grid-row: 1 / 6;
+}
+
+/* Full width: Button, Note */
+.contact-form > button,
+.contact-form > p {
+    grid-column: 1 / -1;
 }
 
 .form-group {
@@ -145,6 +183,11 @@
 .form-group textarea {
     resize: vertical;
     min-height: 120px;
+}
+
+.contact-form > .form-group:nth-child(6) textarea {
+    flex: 1;
+    resize: none;
 }
 
 /* Captcha Group */
@@ -249,7 +292,6 @@
     }
 
     .contact-wrapper {
-        grid-template-columns: 1fr;
         gap: 30px;
     }
 
@@ -262,7 +304,30 @@
     }
 
     .contact-form {
+        grid-template-columns: 1fr;
         gap: 15px;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .contact-form-wrapper {
+        max-width: 100%;
+    }
+
+    .contact-form > .form-group:nth-child(1),
+    .contact-form > .form-group:nth-child(2),
+    .contact-form > .form-group:nth-child(3),
+    .contact-form > .form-group:nth-child(4),
+    .contact-form > .form-group:nth-child(5),
+    .contact-form > .form-group:nth-child(6),
+    .contact-form > .form-group:nth-child(7),
+    .contact-form > .form-group:nth-child(8),
+    .contact-form > button,
+    .contact-form > p {
+        grid-column: 1;
     }
 }
 
@@ -287,4 +352,65 @@
     .checkbox-group label {
         font-size: 13px;
     }
+}
+
+/* ============================================
+   CAPTCHA MODAL
+   ============================================ */
+
+.captcha-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.captcha-modal-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.captcha-modal-question {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.captcha-modal-input {
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.captcha-modal-input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+}
+
+.captcha-modal-error {
+    color: #d32f2f;
+    font-size: 13px;
+    text-align: center;
+    min-height: 18px;
+}
+
+.captcha-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
 }

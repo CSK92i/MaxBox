@@ -3,6 +3,33 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Photo Slider
+    const track = document.querySelector('.slider-track');
+    if (track) {
+        const slides = track.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let current = 0;
+        let autoplay;
+
+        function goTo(index) {
+            current = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[current].classList.add('active');
+        }
+
+        document.querySelector('.slider-prev').addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+        document.querySelector('.slider-next').addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+        dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.index); resetAutoplay(); }));
+
+        function resetAutoplay() {
+            clearInterval(autoplay);
+            autoplay = setInterval(() => goTo(current + 1), 4000);
+        }
+        resetAutoplay();
+    }
+
+
     // Mobile menu toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');

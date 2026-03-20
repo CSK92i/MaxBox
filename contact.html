@@ -38,7 +38,7 @@
     <!-- Hero Small -->
     <section class="hero-small">
         <div class="container">
-            <h2>Nous contacter</h2>
+            <h1>Nous contacter</h1>
         </div>
     </section>
 
@@ -48,14 +48,14 @@
             <div class="contact-wrapper">
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <h3>Informations</h3>
+                    <h2 class="">Informations</h2>
                     <div class="info-card">
-                        <h4>📞 Téléphone</h4>
+                        <h3>📞 Téléphone</h3>
                         <p><strong>07.56.83.30.89</strong></p>
                         <p class="info-note">Lundi au vendredi : 9h - 17h</p>
                     </div>
                     <div class="info-card">
-                        <h4>📍 Localisation</h4>
+                        <h3>📍 Adresse</h3>
                         <p>204 route du Plan de la Tour</p>
                         <p>83120 Sainte-Maxime</p>
                     </div>
@@ -99,24 +99,7 @@
                             <textarea id="message" name="message" rows="6" required></textarea>
                             <span class="error-message" id="message-error"></span>
                         </div>
-
-                        <!-- Simple Math Captcha -->
-                        <div class="form-group captcha-group">
-                            <label for="captcha" id="captcha-question">Captcha : 2 + 3 = ? *</label>
-                            <input type="number" id="captcha" name="captcha" placeholder="Réponse" required>
-                            <span class="error-message" id="captcha-error"></span>
-                        </div>
-
-                        <div class="form-group checkbox-group">
-                            <label for="terms">
-                                <input type="checkbox" id="terms" name="terms" required>
-                                J'accepte les conditions d'utilisation et la politique de confidentialité *
-                            </label>
-                            <span class="error-message" id="terms-error"></span>
-                        </div>
-
                         <button type="submit" class="btn btn-primary">Envoyer ma Demande</button>
-                        <p class="form-note">Nous vous répondrons dans les 24 heures.</p>
                     </form>
 
                     <!-- Success Message -->
@@ -167,6 +150,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Captcha Modal -->
+    <div id="captchaModal" class="captcha-modal" style="display:none;">
+        <div class="captcha-modal-box">
+            <p id="captchaModalQuestion" class="captcha-modal-question"></p>
+            <input type="number" id="captchaModalInput" class="captcha-modal-input" placeholder="Réponse">
+            <span id="captchaModalError" class="captcha-modal-error"></span>
+            <div class="captcha-modal-actions">
+                <button type="button" id="captchaModalCancel" class="btn btn-secondary">Annuler</button>
+                <button type="button" id="captchaModalConfirm" class="btn btn-primary">Valider</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
     <script src="js/phone-protect.js"></script>

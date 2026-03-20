@@ -15,18 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializeContactForm() {
     const form = document.getElementById('contactForm');
-    const captchaQuestion = document.getElementById('captcha-question');
-
     if (!form) return;
-
-    // Initialize captcha
-    generateCaptcha();
 
     // Add form submission handler
     form.addEventListener('submit', handleFormSubmit);
 
     // Add real-time validation
     addRealTimeValidation();
+
+    // Captcha modal buttons
+    document.getElementById('captchaModalConfirm').addEventListener('click', handleCaptchaConfirm);
+    document.getElementById('captchaModalCancel').addEventListener('click', closeCaptchaModal);
 }
 
 // ============================================
@@ -34,30 +33,39 @@ function initializeContactForm() {
 // ============================================
 
 let captchaAnswer = null;
+let pendingSubmitData = null;
 
-/**
- * Generate a simple math captcha
- */
-function generateCaptcha() {
+function openCaptchaModal() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
     const operation = Math.random() > 0.5 ? '+' : '-';
-
     captchaAnswer = operation === '+' ? num1 + num2 : num1 - num2;
 
-    const question = operation === '+'
-        ? `Captcha : ${num1} + ${num2} = ?`
-        : `Captcha : ${num1} - ${num2} = ?`;
-
-    document.getElementById('captcha-question').textContent = question;
-    document.getElementById('captcha').value = '';
+    document.getElementById('captchaModalQuestion').textContent =
+        `${num1} ${operation} ${num2} = ?`;
+    document.getElementById('captchaModalInput').value = '';
+    document.getElementById('captchaModalError').textContent = '';
+    document.getElementById('captchaModal').style.display = 'flex';
+    document.getElementById('captchaModalInput').focus();
 }
 
-/**
- * Verify captcha answer
- */
-function verifyCaptcha(userAnswer) {
-    return parseInt(userAnswer) === captchaAnswer;
+function closeCaptchaModal() {
+    document.getElementById('captchaModal').style.display = 'none';
+    pendingSubmitData = null;
+    const btn = document.querySelector('#contactForm button[type="submit"]');
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma Demande';
+}
+
+function handleCaptchaConfirm() {
+    const input = document.getElementById('captchaModalInput');
+    if (parseInt(input.value) !== captchaAnswer) {
+        document.getElementById('captchaModalError').textContent = 'Réponse incorrecte, réessayez.';
+        openCaptchaModal();
+        return;
+    }
+    closeCaptchaModal();
+    submitFormData(pendingSubmitData);
 }
 
 // ============================================
@@ -84,14 +92,6 @@ const validators = {
     message: {
         validate: (value) => value.trim().length >= 10,
         error: 'Le message doit contenir au moins 10 caractères'
-    },
-    captcha: {
-        validate: (value) => verifyCaptcha(value),
-        error: 'La réponse au captcha est incorrecte'
-    },
-    terms: {
-        validate: (checked) => checked,
-        error: 'Veuillez accepter les conditions d\'utilisation'
     }
 };
 
@@ -149,7 +149,7 @@ function validateField(fieldName) {
  * Validate entire form
  */
 function validateForm() {
-    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'message', 'captcha', 'terms'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'message'];
     let isValid = true;
 
     requiredFields.forEach(fieldName => {
@@ -165,7 +165,7 @@ function validateForm() {
  * Add real-time validation
  */
 function addRealTimeValidation() {
-    const fields = ['firstName', 'lastName', 'email', 'phone', 'message', 'captcha', 'terms'];
+    const fields = ['firstName', 'lastName', 'email', 'phone', 'message'];
 
     fields.forEach(fieldName => {
         const field = document.getElementById(fieldName);
@@ -182,17 +182,16 @@ function addRealTimeValidation() {
 // FORM SUBMISSION
 // ============================================
 
-async function handleFormSubmit(e) {
+function handleFormSubmit(e) {
     e.preventDefault();
 
-    // Validate form
     if (!validateForm()) {
         showNotification('Veuillez corriger les erreurs du formulaire', 'error');
         return;
     }
 
-    // Collect form data
-    const formData = {
+    // Store form data and show captcha modal
+    pendingSubmitData = {
         firstName: document.getElementById('firstName').value,
         lastName: document.getElementById('lastName').value,
         company: document.getElementById('company').value,
@@ -203,26 +202,25 @@ async function handleFormSubmit(e) {
         userAgent: navigator.userAgent
     };
 
-    try {
-        // Show loading state
-        const submitButton = this.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.disabled = true;
-        submitButton.textContent = 'Envoi en cours...';
+    const submitButton = this.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Vérification...';
 
-        // Send to backend
+    openCaptchaModal();
+}
+
+async function submitFormData(formData) {
+    const submitButton = document.querySelector('#contactForm button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Envoi en cours...';
+
+    try {
         const response = await sendFormData(formData);
 
         if (response.success) {
-            // Show success message
             document.getElementById('contactForm').style.display = 'none';
             document.getElementById('successMessage').style.display = 'block';
-
-            // Scroll to success message
             document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-
-            // Log successful submission
-            console.log('[Analytics] Form submitted successfully');
 
             if (window.gtag) {
                 gtag('event', 'form_submit', {
@@ -236,9 +234,6 @@ async function handleFormSubmit(e) {
     } catch (error) {
         console.error('Form submission error:', error);
         showNotification('Erreur lors de l\'envoi du formulaire. Veuillez réessayer.', 'error');
-
-        // Reset button
-        const submitButton = this.querySelector('button[type="submit"]');
         submitButton.disabled = false;
         submitButton.textContent = 'Envoyer ma Demande';
     }
