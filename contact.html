@@ -178,7 +178,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Initialiser la carte
-            var map = L.map('map').setView([43.2677, 6.6309], 15);
+            var map = L.map('map').setView([43.3261, 6.6066], 15);
 
             // Ajouter les tuiles OpenStreetMap
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -187,8 +187,8 @@
             }).addTo(map);
 
             // Ajouter le marqueur
-            L.marker([43.2677, 6.6309]).addTo(map)
-                .bindPopup('<b>MAXBOX</b><br/>204 route du Plan de la Tour<br/>83120 Sainte-Maxime')
+            L.marker([43.3261, 6.6066]).addTo(map)
+                .bindPopup('<b>MaxBox</b><br/>204 route du Plan de la Tour<br/>83120 Sainte-Maxime')
                 .openPopup();
         });
     </script>
