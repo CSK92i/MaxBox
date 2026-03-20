@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contactez MAXBOX - Centre de self-stockage. Envoyez-nous votre demande via notre formulaire de contact.">
+    <meta name="robots" content="index, follow">
+    <title>Contact - MAXBOX | Self-Stockage</title>
+    <link rel="canonical" href="https://maxbox.fr/contact.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="MAXBOX Logo" class="logo-img">
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">Qui sommes-nous ?</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Tarifs</a></li>
+                    <li><a href="contact.html" class="cta-nav active">Contact</a></li>
+                </ul>
+                <button class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Small -->
+    <section class="hero-small">
+        <div class="container">
+            <h2>Nous contacter</h2>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Informations</h3>
+                    <div class="info-card">
+                        <h4>📞 Téléphone</h4>
+                        <p><strong>07.56.83.30.89</strong></p>
+                        <p class="info-note">Lundi au vendredi : 9h - 17h</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>📍 Localisation</h4>
+                        <p>204 route du Plan de la Tour</p>
+                        <p>83120 Sainte-Maxime</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3>Formulaire de Contact</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <span class="error-message" id="firstName-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="error-message" id="lastName-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Société</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="error-message" id="message-error"></span>
+                        </div>
+
+                        <!-- Simple Math Captcha -->
+                        <div class="form-group captcha-group">
+                            <label for="captcha" id="captcha-question">Captcha : 2 + 3 = ? *</label>
+                            <input type="number" id="captcha" name="captcha" placeholder="Réponse" required>
+                            <span class="error-message" id="captcha-error"></span>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label for="terms">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                J'accepte les conditions d'utilisation et la politique de confidentialité *
+                            </label>
+                            <span class="error-message" id="terms-error"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Envoyer ma Demande</button>
+                        <p class="form-note">Nous vous répondrons dans les 24 heures.</p>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="success-message" style="display: none;">
+                        <h4>✓ Message Envoyé</h4>
+                        <p>Merci ! Nous avons reçu votre demande et vous répondrons dans les 24 heures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section style="padding: 80px 0; background: var(--bg-light);">
+        <div class="container">
+            <h3 class="section-title">Localisation</h3>
+            <div id="map" style="width: 100%; height: 400px; border-radius: 10px; box-shadow: var(--shadow-lg);"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>MaxBox</h5>
+                    <p>Centre de self-stockage</p>
+                </div>
+                <div class="footer-section">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">Qui sommes-nous ?</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Informations</h5>
+                    <ul>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MaxBox. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/phone-protect.js"></script>
+    <script src="js/form.js"></script>
+
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialiser la carte
+            var map = L.map('map').setView([43.2677, 6.6309], 15);
+
+            // Ajouter les tuiles OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Ajouter le marqueur
+            L.marker([43.2677, 6.6309]).addTo(map)
+                .bindPopup('<b>MAXBOX</b><br/>204 route du Plan de la Tour<br/>83120 Sainte-Maxime')
+                .openPopup();
+        });
+    </script>
+</body>
+</html>

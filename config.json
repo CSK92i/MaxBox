@@ -1,0 +1,247 @@
+{
+  "company": {
+    "name": "MAXBOX",
+    "tagline": "Self-Stockage",
+    "description": "Centre de self-stockage moderne et sécurisé",
+    "phone": "0756833089",
+    "email": "location@groupe-hgi.com",
+    "year_founded": 2020
+  },
+  "contact": {
+    "phone": {
+      "number": "0756833089",
+      "label": "Réservations et informations",
+      "hours": "Lundi à Samedi : 9h - 18h"
+    },
+    "email": "location@groupe-hgi.com",
+    "hours": {
+      "weekday": {
+        "start": "9:00",
+        "end": "18:00"
+      },
+      "saturday": {
+        "start": "10:00",
+        "end": "16:00"
+      },
+      "sunday": "closed"
+    }
+  },
+  "pricing": [
+    {
+      "id": "2m",
+      "size": "2m²",
+      "dimensions": "2m × 1m × 2.5m",
+      "price": 29,
+      "currency": "€",
+      "period": "par mois",
+      "features": [
+        "Sécurité 24/7",
+        "Climatisé",
+        "Accès facile",
+        "Assurance disponible"
+      ],
+      "featured": false
+    },
+    {
+      "id": "6m",
+      "size": "6m²",
+      "dimensions": "3m × 2m × 2.5m",
+      "price": 59,
+      "currency": "€",
+      "period": "par mois",
+      "features": [
+        "Sécurité 24/7",
+        "Climatisé",
+        "Accès 24/7 possible",
+        "Assurance incluse",
+        "Emplacement flexible"
+      ],
+      "featured": true,
+      "badge": "PLUS POPULAIRE"
+    },
+    {
+      "id": "12m",
+      "size": "12m²",
+      "dimensions": "4m × 3m × 2.5m",
+      "price": 99,
+      "currency": "€",
+      "period": "par mois",
+      "features": [
+        "Sécurité 24/7",
+        "Climatisé",
+        "Accès prioritaire",
+        "Assurance incluse",
+        "Service premium"
+      ],
+      "featured": false
+    },
+    {
+      "id": "20m",
+      "size": "20m²",
+      "dimensions": "5m × 4m × 2.5m",
+      "price": 149,
+      "currency": "€",
+      "period": "par mois",
+      "features": [
+        "Sécurité 24/7",
+        "Climatisé",
+        "Accès illimité 24/7",
+        "Assurance premium",
+        "Support client VIP"
+      ],
+      "featured": false
+    }
+  ],
+  "services": [
+    {
+      "id": "security",
+      "title": "Sécurité 24/7",
+      "icon": "🔒",
+      "description": "Vos biens sont protégés constamment grâce à notre système de surveillance vidéo de dernière génération.",
+      "features": [
+        "Caméras HD haute résolution",
+        "Enregistrement continu",
+        "Contrôle d'accès sécurisé",
+        "Alarmes sophistiquées"
+      ]
+    },
+    {
+      "id": "climate",
+      "title": "Environnement Climatisé",
+      "icon": "🌡️",
+      "description": "Température et humidité contrôlées pour préserver vos biens précieux dans les meilleures conditions.",
+      "features": [
+        "Température 15°-25°C",
+        "Humidité régulée",
+        "Ventilation optimale",
+        "Protection anti-poussière"
+      ]
+    },
+    {
+      "id": "access",
+      "title": "Accès Facile & Flexible",
+      "icon": "⚡",
+      "description": "Accédez à votre box quand bon vous semble avec nos horaires étendus et notre personnel toujours disponible.",
+      "features": [
+        "Accès 24/7 possible",
+        "Horaires flexibles",
+        "Accueil professionnel",
+        "Assistance à l'emballage"
+      ]
+    },
+    {
+      "id": "storage",
+      "title": "Stockage Diversifié",
+      "icon": "📦",
+      "description": "Boxes de différentes tailles pour tous vos besoins : petit mobilier, archives, équipements professionnels.",
+      "features": [
+        "Boxes de 2m² à 20m²",
+        "Hauteur plafond 2,5m",
+        "Sol béton renforcé",
+        "Espace de manœuvre"
+      ]
+    },
+    {
+      "id": "pricing",
+      "title": "Tarifs Compétitifs",
+      "icon": "💰",
+      "description": "Forfaits flexibles sans frais cachés et adaptés à tous les budgets. Premier mois offert pour nouvelle réservation.",
+      "features": [
+        "Pas de frais d'entrée",
+        "Contrats périodiques",
+        "Paiement mensuel simple",
+        "Réduction pour durée longue"
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Service de Livraison",
+      "icon": "🚚",
+      "description": "Options de livraison disponibles pour faciliter vos installations. Déménagement et logistique disponibles.",
+      "features": [
+        "Livraison disponible",
+        "Partenaires de confiance",
+        "Assurance déménagement",
+        "Conseil en logistique"
+      ]
+    }
+  ],
+  "team": [
+    {
+      "title": "Administration",
+      "icon": "👨‍💼",
+      "description": "Gestion professionnelle et transparente de votre dossier"
+    },
+    {
+      "title": "Sécurité",
+      "icon": "🔒",
+      "description": "Surveillance 24/7 et monitoring constant des installations"
+    },
+    {
+      "title": "Support Client",
+      "icon": "📞",
+      "description": "Disponible pour répondre à toutes vos questions et demandes"
+    }
+  ],
+  "stats": {
+    "clients": 500,
+    "monitoring": "24/7",
+    "temperature": "15°-25°",
+    "secured": "100%"
+  },
+  "faqs": [
+    {
+      "question": "Quel est l'engagement minimal ?",
+      "answer": "Aucun engagement obligatoire. Vous pouvez résilier votre contrat à tout moment avec un préavis d'un mois."
+    },
+    {
+      "question": "Comment fonctionnent les paiements ?",
+      "answer": "Paiement mensuel par prélèvement automatique, CB ou virement. Factures claires et détaillées fournies immédiatement."
+    },
+    {
+      "question": "Y a-t-il des frais supplémentaires ?",
+      "answer": "Non, le tarif affiché est le tarif final. Pas de frais d'entrée, frais d'assurance ou charges cachées."
+    },
+    {
+      "question": "Puis-je modifier la taille de ma box ?",
+      "answer": "Bien sûr ! Vous pouvez changer de taille à tout moment. Nous trouverons une solution adaptée à votre situation."
+    },
+    {
+      "question": "Quels sont les horaires d'accès ?",
+      "answer": "Horaires standard : 9h-18h en semaine, 10h-16h le samedi. L'accès 24/7 est disponible sur demande pour certaines boxes."
+    },
+    {
+      "question": "Ai-je besoin d'une assurance ?",
+      "answer": "Recommandée mais non obligatoire pour tous. Incluse gratuitement pour les boxes 6m² et plus."
+    }
+  ],
+  "seo": {
+    "siteName": "MAXBOX",
+    "siteDescription": "Centre de self-stockage moderne et sécurisé avec tarifs compétitifs",
+    "keywords": "self-stockage, stockage, box de stockage, entreposage, stockage sécurisé, box stockage",
+    "og_image": "https://maxbox.fr/og-image.png",
+    "og_url": "https://maxbox.fr"
+  },
+  "pages": {
+    "home": {
+      "title": "MAXBOX - Self-Stockage Moderne | Réservez Dès Maintenant",
+      "description": "MAXBOX - Centre de self-stockage moderne et sécurisé. Réservez votre espace de stockage au 0756833089."
+    },
+    "about": {
+      "title": "À Propos - MAXBOX | Self-Stockage",
+      "description": "Découvrez MAXBOX - Centre de self-stockage moderne. Nous vous proposons des solutions de stockage sécurisées et climatisées."
+    },
+    "services": {
+      "title": "Nos Services - MAXBOX | Self-Stockage",
+      "description": "Découvrez nos services de self-stockage - Boxes sécurisées, accès 24/7, surveillance vidéo, et plus."
+    },
+    "pricing": {
+      "title": "Tarifs - MAXBOX | Self-Stockage",
+      "description": "Découvrez les tarifs de MAXBOX - Self-stockage accessible avec des forfaits flexibles adaptés à vos besoins."
+    },
+    "contact": {
+      "title": "Contact - MAXBOX | Self-Stockage",
+      "description": "Contactez MAXBOX - Centre de self-stockage. Envoyez-nous votre demande via notre formulaire de contact."
+    }
+  }
+}
