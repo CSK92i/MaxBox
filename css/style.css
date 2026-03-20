@@ -52,6 +52,8 @@ body {
     box-shadow: var(--shadow);
     z-index: 100;
     transition: var(--transition);
+    height: 120px;
+    overflow: hidden;
 }
 
 .nav-wrapper {
