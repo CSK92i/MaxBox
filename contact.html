@@ -51,13 +51,12 @@
                     <h2 class="">Informations</h2>
                     <div class="info-card">
                         <h3>📞 Téléphone</h3>
-                        <p><strong>07.56.83.30.89</strong></p>
+                        <a href="tel:0494441410" class="btn btn-primary" style="display: inline-block; margin-bottom: 10px;">04 94 44 14 10</a>
                         <p class="info-note">Lundi au vendredi : 9h - 17h</p>
                     </div>
                     <div class="info-card">
                         <h3>📍 Adresse</h3>
-                        <p>204 route du Plan de la Tour</p>
-                        <p>83120 Sainte-Maxime</p>
+                        <a href="https://www.google.com/maps/place/MaxBox/@43.3270272,6.6065505,17z/data=!3m1!4b1!4m6!3m5!1s0x12ceb84dd3439ddb:0x292cd297b1b900e7!8m2!3d43.3270272!4d6.6065505!16s%2Fg%2F11y4_k9m8t" target="_blank" rel="noopener" class="address-btn">204 route du Plan de la Tour<br>83120 Sainte-Maxime</a>
                     </div>
                 </div>
 
@@ -116,7 +115,9 @@
     <section style="padding: 80px 0; background: var(--bg-light);">
         <div class="container">
             <h3 class="section-title">Localisation</h3>
-            <div id="map" style="width: 100%; height: 400px; border-radius: 10px; box-shadow: var(--shadow-lg);"></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2868.377627925686!2d6.606550512689208!3d43.32702724387804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ceb84dd3439ddb%3A0x292cd297b1b900e7!2sMaxBox!5e1!3m2!1sfr!2sfr!4v1774272383015!5m2!1sfr!2sfr"
+                style="width: 100%; height: 400px; border: 0; border-radius: 10px; box-shadow: var(--shadow-lg);"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -168,25 +169,5 @@
     <script src="js/phone-protect.js"></script>
     <script src="js/form.js"></script>
 
-    <!-- Leaflet Map -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialiser la carte
-            var map = L.map('map').setView([43.3261, 6.6066], 15);
-
-            // Ajouter les tuiles OpenStreetMap
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors',
-                maxZoom: 19
-            }).addTo(map);
-
-            // Ajouter le marqueur
-            L.marker([43.3261, 6.6066]).addTo(map)
-                .bindPopup('<b>MaxBox</b><br/>204 route du Plan de la Tour<br/>83120 Sainte-Maxime')
-                .openPopup();
-        });
-    </script>
 </body>
 </html>

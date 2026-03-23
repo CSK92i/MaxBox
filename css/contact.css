@@ -97,6 +97,27 @@
     text-decoration: underline;
 }
 
+.address-btn {
+    display: block;
+    text-align: center;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 12px 20px;
+    background: rgb(226, 11, 25);
+    border: 2px solid rgb(226, 11, 25);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: var(--transition);
+    line-height: 1.6;
+}
+
+.address-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 188, 212, 0.3);
+}
+
 .info-note {
     font-size: 12px;
     color: var(--text-light);
